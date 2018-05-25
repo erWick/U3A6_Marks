@@ -182,6 +182,7 @@ public class marksForm extends javax.swing.JFrame {
     }//GEN-LAST:event_sortButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        //Adds value to arraylist
         double mark = Double.parseDouble(markInput.getText());
         if ((mark>=0) && (mark<=100)) {
             studentMarks.add(mark);
@@ -194,6 +195,7 @@ public class marksForm extends javax.swing.JFrame {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void analyseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analyseButtonActionPerformed
+        //Calls functions        
         double avg = avgM();
         double min = minM();
         double max = maxM();
@@ -204,6 +206,7 @@ public class marksForm extends javax.swing.JFrame {
         double levelOne = levelOneM();
         double levelR = levelRM();
         
+        //Sets text area
         textAreaTwo.setText("Class average: "+Math.round(avg*10)/10+"\n"
                 +"Maximum mark: "+Math.round(max*10)/10+"\n"
                 +"Minimum mark: "+Math.round(min*10)/10+"\n"
@@ -216,6 +219,7 @@ public class marksForm extends javax.swing.JFrame {
                 );
     }//GEN-LAST:event_analyseButtonActionPerformed
 
+    //Calculates average student mark, returns a double value
     private double avgM() {
         double sum = 0;
         for(int i = 0; i < studentMarks.size(); i++)
@@ -225,18 +229,22 @@ public class marksForm extends javax.swing.JFrame {
         return sum/studentMarks.size();
     }
     
+    //Finds minimum student mark, returns a double value
     private double minM() {
         return (Collections.min(studentMarks));
     }
     
+    //Finds maximum student mark, returns a double value
     private double maxM() {
         return (Collections.max(studentMarks));
     }
     
+    //Calculates range of the marks using minimum and maximums, returns a double value
     private double rngM(double min, double max) {
         return max-min;
     }
     
+    //Counts instances of a level four grade, returns an integer value
     private int levelFourM() {
         int count = 0;
         for(int i = 0; i < studentMarks.size(); i++)
@@ -248,6 +256,7 @@ public class marksForm extends javax.swing.JFrame {
         return count;
     }
     
+    //Counts instances of a level three grade, returns an integer value
     private int levelThreeM() {
         int count = 0;
         for(int i = 0; i < studentMarks.size(); i++)
@@ -259,6 +268,7 @@ public class marksForm extends javax.swing.JFrame {
         return count;
     }
     
+    //Counts instances of a level two grade, returns an integer value
     private int levelTwoM() {
         int count = 0;
         for(int i = 0; i < studentMarks.size(); i++)
@@ -270,6 +280,7 @@ public class marksForm extends javax.swing.JFrame {
         return count;
     }
     
+    //Counts instances of a level one grade, returns an integer value
     private int levelOneM() {
         int count = 0;
         for(int i = 0; i < studentMarks.size(); i++)
@@ -281,6 +292,7 @@ public class marksForm extends javax.swing.JFrame {
         return count;
     }
     
+    //Counts instances of a failing grade, returns an integer value
     private int levelRM() {
         int count = 0;
         for(int i = 0; i < studentMarks.size(); i++)
@@ -296,11 +308,14 @@ public class marksForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_markInputKeyTyped
 
+    //Exit button
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    //Action performed in the text area, enables add button
     private void markInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_markInputKeyPressed
+        //Enter key adds value to arraylist
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
             double mark = Double.parseDouble(markInput.getText());
             if ((mark>=0) && (mark<=100)) {
